@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./root.css">
+    <link rel="stylesheet" href="./output.css">
+    <title>Music Player</title>
+</head>
+
+<body>
+    <div class="flex w-full h-screen">
+
+        <div class="w-2/6 flex flex-col h-screen rounded-lg bg-black p-4 gap-2">
+
+            <div class="flex-col gap-4 bg-[#121212] rounded-md justify-center items-center py-2 px-8">
+                <div class="flex gap-4 items-center m-2">
+                    <i class="ri-home-5-fill text-white text-3xl"></i>
+                    <label class="text-white text-[1rem] font-bold">Home</label>
+                </div>
+                <div class="flex gap-4 items-center m-2">
+                    <i class="ri-search-line text-white text-3xl"></i>
+                    <label class="text-white text-[1rem] font-bold">Search</label>
+                </div>
+            </div>
+
+
+            <div class="bg-[#121212] rounded-md justify-center items-center py-2 px-8 mt-2">
+                <div class="flex justify-between items-center">
+                    <div class="flex gap-4 justify-center items-center">
+                        <i class="ri-book-3-fill text-3xl"></i>
+                        <label class="font-bold text-[1rem]">Your Library</label>
+                    </div>
+                    <div class="flex gap-4">
+                        <i class="ri-close-fill text-3xl"></i>
+                        <i class="ri-arrow-right-line text-3xl"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col w-full gap-2 justify-start max-h-[68vh] overflow-y-auto" id="songlists">
+                <!-- song lists goes here -->
+            </div>
+        </div>
+
+
+        <div class="flex-col justify-center items-start w-4/6 rounded-lg bg-[#121212] m-4 p-4">
+            <div class="flex justify-between items-start w-full h-[10%]">
+                <div class="">
+                    <i class="ri-arrow-left-line text-3xl"></i>
+                    <i class="ri-arrow-right-line text-3xl"></i>
+                </div>
+                <div class="flex gap-2 justify-center items-center">
+                    <button class="rounded-2xl bg-white text-black font-bold p-1">Explore Premium</button>
+                    <button class="rounded-2xl bg-white text-black font-bold p-1">Log In</button>
+                </div>
+            </div>
+            <div class="flex justify-center items-center w-full h-[90%] gap-2">
+                <div class="w-[40%] h-full rounded-lg p-4">
+                    <h1 class="font-bold text-[1.5rem]">Now Playing</h1>
+                    <img src="https://i.pinimg.com/564x/75/12/3f/75123f93239d2841e89638ab78dafcf6.jpg" alt=""
+                        class="rounded-lg">
+                    <div class="w-full flex justify-around items-center gap-4">
+                        <i class="ri-shuffle-fill text-[2rem]"></i>
+                        <i class="ri-skip-back-fill text-[2rem]"></i>
+                        <i class="ri-play-circle-fill text-[2rem]"></i>
+                        <i class="ri-skip-forward-fill text-[2rem]"></i>
+                        <i class="ri-repeat-2-fill text-[2rem]"></i>
+                    </div>
+                    <input type="range" class="w-full" id="seeker"/>
+                    <div class="flex justify-between items-center">
+                        <p>00:00</p>
+                        <p>03:13</p>
+                    </div>
+                    <h3>Gone Gone Gone - Phillip Phillips </h3>
+                </div>
+                <div class="w-[60%] h-full p-4">
+                    <h1 class="font-bold text-[1.5rem]">Your Playlists</h1>
+                    <div class="flex flex-wrap justify-center items-center gap-2">
+                        <div class="bg-[#252424] w-[32%] h-[35vh] rounded-lg p-2 gap-2 flex flex-col playlist">
+                            <div class="play-btn">
+                                <i class="ri-play-fill"></i>
+                            </div>
+                            <img src="https://i.pinimg.com/564x/12/93/b9/1293b91b84182d6e19d50b61e297c2b7.jpg" alt=""
+                                class="rounded-lg object-cover w-full h-[65%]">
+                            <h2 class="font-bold">Playlist 1</h2>
+                            <h2 class="text-xs font-bold">Eminem, Joyner Lucas, 21-Savage and More</h2>
+                        </div>
+                        <div class="bg-[#252424] w-[32%] h-[35vh] rounded-lg p-2 gap-2 flex flex-col playlist">
+                            <div class="play-btn">
+                                <i class="ri-play-fill"></i>
+                            </div>
+                            <img src="https://i.pinimg.com/564x/af/99/7b/af997bd9ce063b60705e71b7c21b8198.jpg" alt=""
+                                class="rounded-lg object-cover w-full h-[65%]">
+                            <h2 class="font-bold">Playlist 2</h2>
+                            <h2 class="text-xs font-bold">Arijit Singh, Armaan Malik, KK and More</h2>
+                        </div>
+                        <div class="bg-[#252424] w-[32%] h-[35vh] rounded-lg p-2 gap-2 flex flex-col playlist">
+                            <div class="play-btn">
+                                <i class="ri-play-fill"></i>
+                            </div>
+                            <img src="https://i.pinimg.com/564x/6b/0c/e1/6b0ce1346fd3cfa0a0bc9bba8629f5b8.jpg" alt=""
+                                class="rounded-lg object-cover w-full h-[65%]">
+                            <h2 class="font-bold">Playlist 3</h2>
+                            <h2 class="text-xs font-bold">AJ Maisnam, Pushparani, Abhishek and More</h2>
+                        </div>
+                        <div class="bg-[#252424] w-[32%] h-[35vh] rounded-lg p-2 gap-2 flex flex-col playlist">
+                            <div class="play-btn">
+                                <i class="ri-play-fill"></i>
+                            </div>
+                            <img src="https://i.pinimg.com/564x/e0/11/c0/e011c0cea6f2c0c9bc5a759091a6becf.jpg" alt=""
+                                class="rounded-lg object-cover w-full h-[65%]">
+                            <h2 class="font-bold">Playlist 4</h2>
+                            <h2 class="text-xs font-bold">One Direction, Niall Horan and More</h2>
+                        </div>
+                        <div class="bg-[#252424] w-[32%] h-[35vh] rounded-lg p-2 gap-2 flex flex-col playlist">
+                            <div class="play-btn">
+                                <i class="ri-play-fill"></i>
+                            </div>
+                            <img src="https://i.pinimg.com/564x/8d/95/b6/8d95b6faf71e8f5c283cd16735ba5440.jpg" alt=""
+                                class="rounded-lg object-cover w-full h-[65%]">
+                            <h2 class="font-bold">Playlist 5</h2>
+                            <h2 class="text-xs font-bold">Phillip Phillips, Taylor Swift and More</h2>
+                        </div>
+                        <div class="bg-[#252424] w-[32%] h-[35vh] rounded-lg p-2 gap-2 flex flex-col playlist">
+                            <div class="play-btn">
+                                <i class="ri-play-fill"></i>
+                            </div>
+                            <img src="https://i.pinimg.com/564x/34/b1/49/34b14903a7c3bac60c27930d528d490a.jpg" alt=""
+                                class="rounded-lg object-cover w-full h-[65%]">
+                            <h2 class="font-bold">Playlist 6</h2>
+                            <h2 class="text-xs font-bold">Shreya Goshal, Sonu Nigam and More</h2>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

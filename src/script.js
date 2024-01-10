@@ -1,5 +1,9 @@
 console.log("afdfsdfdsf");
 
+let currentAudio = null; // Variable to store the currently playing audio
+let currentSongIndex = 0; // Variable to store the index of the currently playing song
+let isPlaying = false; // Variable to store the current playing state
+
 async function getSongs() {
   let a = await fetch("http://127.0.0.1:3000/songs/");
   let response = await a.text();
@@ -21,9 +25,12 @@ async function main() {
   console.log(songs);
 
   let songsContainer = document.getElementById("songlists");
+  let skipButton = document.getElementById("skip");
+  let prevButton = document.getElementById("prev");
+  let pauseButton = document.getElementById("pause"); // Add pause button element in HTML
 
   // Iterate through the songs array and create elements for each song
-  songs.forEach((songURL) => {
+  songs.forEach((songURL, index) => {
     // Extract the filename from the URL
     let fileName = decodeURIComponent(songURL.split("/").pop());
 
@@ -46,12 +53,56 @@ async function main() {
 
     songDiv.appendChild(songNameDiv);
     songsContainer.appendChild(songDiv);
+
+    // Attach a click event listener to play the respective song
+    songDiv.addEventListener("click", () => {
+      playSong(index);
+    });
   });
 
-  // For demonstration, play the first audio in the array
-  if (songs.length > 0) {
-    let audio = new Audio(songs[0]);
+  // Skip button functionality
+  skipButton.addEventListener("click", () => {
+    if (currentAudio) {
+      currentAudio.pause();
+      currentSongIndex = (currentSongIndex + 1) % songs.length;
+      playSong(currentSongIndex);
+    }
+  });
+
+  // Previous button functionality
+  prevButton.addEventListener("click", () => {
+    if (currentAudio) {
+      currentAudio.pause();
+      currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+      playSong(currentSongIndex);
+    }
+  });
+
+  // Pause button functionality
+  pauseButton.addEventListener("click", () => {
+    if (currentAudio) {
+      if (isPlaying) {
+        currentAudio.pause();
+        isPlaying = false;
+      } else {
+        currentAudio.play();
+        isPlaying = true;
+      }
+    }
+  });
+
+  function playSong(index) {
+    // Stop the currently playing audio if exists
+    if (currentAudio) {
+      currentAudio.pause();
+    }
+
+    // Play the selected audio
+    let audio = new Audio(songs[index]);
     audio.play();
+    currentAudio = audio;
+    currentSongIndex = index;
+    isPlaying = true;
   }
 }
 

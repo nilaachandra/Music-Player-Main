@@ -30,9 +30,9 @@ async function main() {
   let skipButton = document.getElementById("skip");
   let prevButton = document.getElementById("prev");
   let pauseButton = document.getElementById("pause");
-  let shuffleButton = document.getElementById("shuffle"); 
+  let shuffleButton = document.getElementById("shuffle");
   let repeatButton = document.getElementById("repeat");
-  
+
   // Function to toggle the color of the shuffle button
   function toggleShuffleColor() {
     shuffleButton.classList.toggle("text-green-500", isShuffle);
@@ -57,11 +57,12 @@ async function main() {
     let fileName = decodeURIComponent(songURL.split("/").pop());
 
     // Clean up the filename by replacing '%20' with spaces
-    fileName = fileName.replace(/%20/g, ' ');
+    fileName = fileName.replace(/%20/g, " ");
 
     // Create the song div
     let songDiv = document.createElement("div");
-    songDiv.className = "song flex items-center justify-start gap-4 bg-[#121212] p-4 rounded-md";
+    songDiv.className =
+      "song flex items-center justify-start gap-4 bg-[#121212] p-4 rounded-md";
 
     let musicIcon = document.createElement("i");
     musicIcon.className = "ri-music-2-fill text-3xl";
@@ -149,42 +150,42 @@ async function main() {
       });
     }
 
-// If shuffle is on, shuffle the songs
-if (isShuffle) {
-  shuffleSongs();
-}
+    // If shuffle is on, shuffle the songs
+    if (isShuffle) {
+      shuffleSongs();
+    }
 
-// Toggle the colors of the buttons
-toggleShuffleColor();
-toggleRepeatColor();
-togglePauseColor();
-}
+    // Toggle the colors of the buttons
+    toggleShuffleColor();
+    toggleRepeatColor();
+    togglePauseColor();
+  }
 
-function getNextSongIndex() {
-if (isShuffle) {
-  return getRandomIndex();
-} else {
-  return (currentSongIndex + 1) % songs.length;
-}
-}
+  function getNextSongIndex() {
+    if (isShuffle) {
+      return getRandomIndex();
+    } else {
+      return (currentSongIndex + 1) % songs.length;
+    }
+  }
 
-function getPrevSongIndex() {
-if (isShuffle) {
-  return getRandomIndex();
-} else {
-  return (currentSongIndex - 1 + songs.length) % songs.length;
-}
-}
+  function getPrevSongIndex() {
+    if (isShuffle) {
+      return getRandomIndex();
+    } else {
+      return (currentSongIndex - 1 + songs.length) % songs.length;
+    }
+  }
 
-function getRandomIndex() {
-return Math.floor(Math.random() * songs.length);
-}
+  function getRandomIndex() {
+    return Math.floor(Math.random() * songs.length);
+  }
 
-function shuffleSongs() {
-if (isShuffle) {
-  currentSongIndex = getRandomIndex();
-}
-}
+  function shuffleSongs() {
+    if (isShuffle) {
+      currentSongIndex = getRandomIndex();
+    }
+  }
 }
 
 // Call the main function

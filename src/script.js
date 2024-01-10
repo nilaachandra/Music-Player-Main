@@ -30,9 +30,9 @@ async function main() {
   let skipButton = document.getElementById("skip");
   let prevButton = document.getElementById("prev");
   let pauseButton = document.getElementById("pause");
-  let shuffleButton = document.getElementById("shuffle"); // Add shuffle button element in HTML
-  let repeatButton = document.getElementById("repeat"); // Add repeat button element in HTML
-
+  let shuffleButton = document.getElementById("shuffle"); 
+  let repeatButton = document.getElementById("repeat");
+  
   // Function to toggle the color of the shuffle button
   function toggleShuffleColor() {
     shuffleButton.classList.toggle("text-green-500", isShuffle);

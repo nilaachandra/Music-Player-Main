@@ -69,14 +69,12 @@
                         <i class="ri-skip-forward-fill text-[2rem] cursor-pointer" id="skip"></i>
                         <i class="ri-repeat-2-fill text-[2rem] cursor-pointer" id="repeat"></i>
                     </div>
-                        <div class="seekbar w-full h-[3px] border-2 border-solid border-green-500 rounded-sm">
-                            <div class="circle w-[12px] h-[12px] rounded-xl bg-green-500 relative bottom-[6px] left-[0%] transition-left duration-500"></div>
-                        </div>
-                    <div class="flex justify-between items-center">
+                            <input type="range" id="seeker" min="0" value="0" step="1" class="w-full"/>
+                    <div class="flex justify-between items-center" id="timer">
                         <p>00:00</p>
                         <p>03:13</p>
                     </div>
-                    <h3>Gone Gone Gone - Phillip Phillips </h3>
+                    <h3 id="trackName">Gone Gone Gone - Phillip Phillips </h3>
                 </div>
                 <div class="w-[60%] h-full p-4">
                     <h1 class="font-bold text-[1.5rem]">Your Playlists</h1>

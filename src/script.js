@@ -199,6 +199,7 @@ async function main() {
 
       // Update the seeker value
       seeker.value = Math.floor(currentAudio.currentTime);
+      
     });
   }
 

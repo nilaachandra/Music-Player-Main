@@ -49,23 +49,24 @@
         </div>
 
 
-        <div class="flex flex-col justify-center items-start w-4/6 rounded-lg bg-[#121212] m-4 p-4" id="right">
-            <div class="flex justify-between items-start w-full" >
+        <div class="flex flex-col justify-center items-start w-4/6 h-min rounded-lg bg-[#121212] m-4 p-4" id="right">
+            <div class="flex justify-between items-center w-full" >
                 <div class="flex gap-4">
                     <i class="ri-menu-2-line text-3xl" id="menuIcon" ></i>
                     <i class="ri-arrow-left-line text-3xl"></i>
                     <i class="ri-arrow-right-line text-3xl"></i>
                 </div>
                 <div class="flex gap-2 justify-center items-center">
-                    <button class="rounded-2xl bg-white text-black font-bold p-1">Explore Premium</button>
-                    <button class="rounded-2xl bg-white text-black font-bold p-1">Log In</button>
+                    <button class="rounded-2xl bg-white text-black font-bold p-1" id="btn">Explore Premium</button>
+                    <button class="rounded-2xl bg-white text-black font-bold p-1" id="btn">Log In</button>
                 </div>
             </div>
             <div class="flex justify-center items-center w-full h-[90%] gap-2" id="mainsec">
                 <div class="w-[40%] h-full rounded-lg p-4" id="album">
                     <h1 class="font-bold text-[1.5rem]">Now Playing</h1>
-                    <img src="https://i.pinimg.com/564x/75/12/3f/75123f93239d2841e89638ab78dafcf6.jpg" alt=""
-                        class="rounded-lg">
+                    <div class="imgholder"><img src="https://i.pinimg.com/564x/93/51/1d/93511d890fcf5b1e87cc55e8401fe166.jpg" alt=""
+                        class="rounded-lg w-full h-full"></div>
+                    
                     <div class="w-full flex justify-around items-center gap-4">
                         <i class="ri-shuffle-fill text-[2rem] cursor-pointer" id="shuffle"></i>
                         <i class="ri-skip-back-fill text-[2rem] cursor-pointer" id="prev"></i>
@@ -80,7 +81,7 @@
                     </div>
                     <h3 id="trackName">Gone Gone Gone - Phillip Phillips </h3>
                 </div>
-                <div class="w-[60%] h-full p-4">
+                <div class="w-[60%] h-full p-4" id="mainsec1">
                     <h1 class="font-bold text-[1.5rem]">Your Playlists</h1>
                     <div class="flex flex-wrap justify-center items-center gap-2" id="mainrsec">
                         <div class="bg-[#252424] w-[32%] h-[35vh] rounded-lg p-2 gap-2 flex flex-col playlist" id="playlist">
@@ -97,7 +98,7 @@
                                 <i class="ri-play-fill"></i>
                             </div>
                             <img src="https://i.pinimg.com/564x/af/99/7b/af997bd9ce063b60705e71b7c21b8198.jpg" alt=""
-                                class="rounded-lg object-cover w-full h-[65%]">
+                                class="rounded-lg object-cover w-full h-[60%]">
                             <h2 class="font-bold">Playlist 2</h2>
                             <h2 class="text-xs font-bold">Arijit Singh, Armaan Malik, KK and More</h2>
                         </div>
@@ -106,7 +107,7 @@
                                 <i class="ri-play-fill"></i>
                             </div>
                             <img src="https://i.pinimg.com/564x/6b/0c/e1/6b0ce1346fd3cfa0a0bc9bba8629f5b8.jpg" alt=""
-                                class="rounded-lg object-cover w-full h-[65%]">
+                                class="rounded-lg object-cover w-full h-[60%]">
                             <h2 class="font-bold">Playlist 3</h2>
                             <h2 class="text-xs font-bold">AJ Maisnam, Pushparani, Abhishek and More</h2>
                         </div>
@@ -115,7 +116,7 @@
                                 <i class="ri-play-fill"></i>
                             </div>
                             <img src="https://i.pinimg.com/564x/e0/11/c0/e011c0cea6f2c0c9bc5a759091a6becf.jpg" alt=""
-                                class="rounded-lg object-cover w-full h-[65%]">
+                                class="rounded-lg object-cover w-full h-[60%]">
                             <h2 class="font-bold">Playlist 4</h2>
                             <h2 class="text-xs font-bold">One Direction, Niall Horan and More</h2>
                         </div>
@@ -124,7 +125,7 @@
                                 <i class="ri-play-fill"></i>
                             </div>
                             <img src="https://i.pinimg.com/564x/8d/95/b6/8d95b6faf71e8f5c283cd16735ba5440.jpg" alt=""
-                                class="rounded-lg object-cover w-full h-[65%]">
+                                class="rounded-lg object-cover w-full h-[60%]">
                             <h2 class="font-bold">Playlist 5</h2>
                             <h2 class="text-xs font-bold">Phillip Phillips, Taylor Swift and More</h2>
                         </div>
@@ -133,7 +134,7 @@
                                 <i class="ri-play-fill"></i>
                             </div>
                             <img src="https://i.pinimg.com/564x/34/b1/49/34b14903a7c3bac60c27930d528d490a.jpg" alt=""
-                                class="rounded-lg object-cover w-full h-[65%]">
+                                class="rounded-lg object-cover w-full h-[60%]">
                             <h2 class="font-bold">Playlist 6</h2>
                             <h2 class="text-xs font-bold">Shreya Goshal, Sonu Nigam and More</h2>
                         </div>
@@ -142,10 +143,10 @@
                     </div>
                 </div>
             </div>
+            <div class="flex justify-center items-center w-full">
+                <p class="text-center">Made with <i class="ri-heart-3-fill text-blue-600"></i> | &#169;Nilaacodes | 2024 | All Rights Reserved</p>
+            </div>
         </div>
-
-
-
 
     </div>
     <script src="./script.js"></script>

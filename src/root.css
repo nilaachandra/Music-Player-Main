@@ -66,14 +66,19 @@ html, body{
     display: none;
     visibility: hidden;
   }
+  .imgholder{
+    width: 100%;
+    height: 16rem;
+    margin-top: 1rem;
+  }
   @media screen and (max-width: 600px) {   
     #left{
         position: fixed;
         left: -100%;
-        transition: all .5s ease-in;
+        transition: all .3s ease-in-out;
         z-index: 1;
         background-color: black;
-        width: 90%;
+        width: 100%;
         height: 100vh;
     } 
     #menuIcon{
@@ -97,11 +102,19 @@ html, body{
     }
     #album{
         width: 100%;
+        display: flex;
+        flex-direction: column;
     }
     #mainrsec{
         width: 100%;
     }
     #playlist{
+        width: 48%;
+    }
+    #mainsec1{
         width: 100%;
+    }
+    #btn{
+        font-size: 0.8rem;
     }
   }

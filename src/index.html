@@ -13,9 +13,12 @@
 <body>
     <div class="flex w-full h-screen">
 
-        <div class="w-2/6 flex flex-col h-screen rounded-lg bg-black p-4 gap-2">
+        <div class="w-2/6 flex flex-col h-screen rounded-lg bg-black p-4 gap-2" id="left">
 
             <div class="flex-col gap-4 bg-[#121212] rounded-md justify-center items-center py-2 px-8">
+                <div class="flex items-end float-end text-3xl" id="close">
+                    <i class="ri-close-line"></i>
+                </div>
                 <div class="flex gap-4 items-center m-2">
                     <i class="ri-home-5-fill text-white text-3xl"></i>
                     <label class="text-white text-[1rem] font-bold">Home</label>
@@ -48,7 +51,8 @@
 
         <div class="flex-col justify-center items-start w-4/6 rounded-lg bg-[#121212] m-4 p-4">
             <div class="flex justify-between items-start w-full h-[10%]">
-                <div class="">
+                <div class="flex gap-4">
+                    <i class="ri-menu-2-line text-3xl" id="menuIcon" ></i>
                     <i class="ri-arrow-left-line text-3xl"></i>
                     <i class="ri-arrow-right-line text-3xl"></i>
                 </div>

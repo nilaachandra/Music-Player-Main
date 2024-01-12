@@ -58,3 +58,33 @@ html, body{
     display: flex;
     justify-content: space-between;
   }
+  #menuIcon{
+    display: none;
+    visibility: hidden;
+  }
+  #close{
+    display: none;
+    visibility: hidden;
+  }
+  @media screen and (max-width: 600px) {   
+    #left{
+        position: fixed;
+        left: -100%;
+        transition: all .5s ease-in;
+        z-index: 1;
+        background-color: black;
+        width: 80%;
+        height: 100vh;
+    } 
+    #menuIcon{
+        display: block;
+        visibility: visible;
+    }
+    #close{
+        visibility: visible;
+        display: flex;
+    }
+    #songlists{
+        overflow-y: scroll;
+    }
+  }

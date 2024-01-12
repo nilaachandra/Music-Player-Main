@@ -199,7 +199,6 @@ async function main() {
 
       // Update the seeker value
       seeker.value = Math.floor(currentAudio.currentTime);
-      
     });
   }
 
@@ -240,6 +239,18 @@ async function main() {
     const parts = decodedURL.split("/");
     return parts[parts.length - 1].replace(/%20/g, " ");
   }
+  //sidebar menu function
+  const menuIcon = document.getElementById("menuIcon");
+  const sideBar = document.getElementById("left");
+  const closeIcon = document.getElementById("close");
+
+  menuIcon.addEventListener("click", function () {
+    sideBar.style.left = "0";
+  });
+
+  closeIcon.addEventListener("click", function () {
+    sideBar.style.left = "-100%";
+  });
 }
 
 // Call the main function

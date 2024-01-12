@@ -73,7 +73,7 @@ html, body{
         transition: all .5s ease-in;
         z-index: 1;
         background-color: black;
-        width: 80%;
+        width: 90%;
         height: 100vh;
     } 
     #menuIcon{
@@ -86,5 +86,22 @@ html, body{
     }
     #songlists{
         overflow-y: scroll;
+    }
+
+    #right{
+        width: 100%;
+    }
+    #mainsec{
+        flex-direction: column;
+        width: 100%;
+    }
+    #album{
+        width: 100%;
+    }
+    #mainrsec{
+        width: 100%;
+    }
+    #playlist{
+        width: 100%;
     }
   }

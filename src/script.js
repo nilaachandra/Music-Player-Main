@@ -1,14 +1,15 @@
 console.log("afdfsdfdsf");
 
-let currentAudio = null; // Variable to store the currently playing audio
-let currentSongIndex = 0; // Variable to store the index of the currently playing song
-let isPlaying = false; // Variable to store the current playing state
-let isShuffle = false; // Variable to store the shuffle state
-let isRepeat = false; // Variable to store the repeat state
+let currentAudio = null;
+let currentSongIndex = 0;
+let isPlaying = false;
+let isShuffle = false;
+let isRepeat = false;
 
-// IDs for HTML elements
 const timerId = "timer";
 const trackNameId = "trackName";
+const seekerId = "seeker";
+const searchInputId = "searchInput";
 
 async function getSongs() {
   let a = await fetch("http://127.0.0.1:3000/songs/");
@@ -31,13 +32,31 @@ async function main() {
   console.log(songs);
 
   let songsContainer = document.getElementById("songlists");
-  let timer = document.getElementById("timer");
-  let seeker = document.getElementById("seeker");
+  let timer = document.getElementById(timerId);
+  let seeker = document.getElementById(seekerId);
   let skipButton = document.getElementById("skip");
   let prevButton = document.getElementById("prev");
   let pauseButton = document.getElementById("pause");
   let shuffleButton = document.getElementById("shuffle");
   let repeatButton = document.getElementById("repeat");
+  let playFirstSong = document.getElementById("playSong");
+  let searchInput = document.getElementById(searchInputId);
+  let playIcons = document.querySelectorAll("#playAll");
+  //play song on click
+  playFirstSong.addEventListener("click", () => {
+    if (songs.length > 0) {
+      playSong(0);
+    }
+  });
+
+  //play song on click the playlist
+  playIcons.forEach(function (playIcon) {
+    playIcon.addEventListener("click", () => {
+      if (songs.length > 0) {
+        playSong(2);
+      }
+    });
+  });
 
   // Function to toggle the color of the shuffle button
   function toggleShuffleColor() {
@@ -60,51 +79,74 @@ async function main() {
   // Function to update the track name, timer, and seeker
   function updateTrackInfo(trackName, currentTime, totalTime) {
     document.getElementById(trackNameId).textContent = trackName;
-    timer.textContent = `${currentTime} ${totalTime}`;
+    timer.innerHTML = `<h4>${currentTime}</h4>  <h4>${totalTime}</h4>`;
     seeker.max = Math.floor(currentAudio.duration); // Set the max value for the seeker
   }
 
-  // Iterate through the songs array and create elements for each song
-  songs.forEach((songURL, index) => {
-    // Extract the filename from the URL
-    let fileName = decodeURIComponent(songURL.split("/").pop());
+  // Function to filter songs based on search query
+  function filterSongs(query) {
+    return songs.filter((song) =>
+      getTrackNameFromURL(song).toLowerCase().includes(query.toLowerCase())
+    );
+  }
 
-    // Clean up the filename by replacing '%20' with spaces
-    fileName = fileName.replace(/%20/g, " ");
+  // Function to render songs based on search results
+  function renderSongs(searchResults) {
+    // Clear existing songs
+    songsContainer.innerHTML = "";
 
-    // Create the song div
-    let songDiv = document.createElement("div");
-    songDiv.className =
-      "song flex items-center justify-start gap-4 bg-[#121212] p-4 rounded-md";
+    // Iterate through the search results array and create elements for each song
+    searchResults.forEach((songURL, index) => {
+      // Extract the filename from the URL
+      let fileName = decodeURIComponent(songURL.split("/").pop());
 
-    let musicIcon = document.createElement("i");
-    musicIcon.className = "ri-music-2-fill text-3xl";
-    songDiv.appendChild(musicIcon);
+      // Clean up the filename by replacing '%20' with spaces
+      fileName = fileName.replace(/%20/g, " ");
 
-    // Create the div for the song name and duration
-    let songInfoDiv = document.createElement("div");
+      // Create the song div
+      let songDiv = document.createElement("div");
+      songDiv.className =
+        "song flex items-center justify-start gap-4 bg-[#121212] p-4 rounded-md";
 
-    // Create the h2 element for the song name
-    let h2 = document.createElement("h2");
-    h2.textContent = fileName;
-    songInfoDiv.appendChild(h2);
+      let musicIcon = document.createElement("i");
+      musicIcon.className = "ri-music-2-fill text-3xl";
+      songDiv.appendChild(musicIcon);
 
-    // Create the div for the song duration
-    let durationDiv = document.createElement("div");
-    durationDiv.id = `duration-${index}`; // Assign a unique ID for each duration div
-    songInfoDiv.appendChild(durationDiv);
+      // Create the div for the song name and duration
+      let songInfoDiv = document.createElement("div");
 
-    // Append the song info div to the song div
-    songDiv.appendChild(songInfoDiv);
+      // Create the h2 element for the song name
+      let h2 = document.createElement("h2");
+      h2.textContent = fileName;
+      songInfoDiv.appendChild(h2);
 
-    // Append the song div to the songs container
-    songsContainer.appendChild(songDiv);
+      // Create the div for the song duration
+      let durationDiv = document.createElement("div");
+      durationDiv.id = `duration-${index}`; // Assign a unique ID for each duration div
+      songInfoDiv.appendChild(durationDiv);
 
-    // Attach a click event listener to play the respective song
-    songDiv.addEventListener("click", () => {
-      playSong(index);
+      // Append the song info div to the song div
+      songDiv.appendChild(songInfoDiv);
+
+      // Append the song div to the songs container
+      songsContainer.appendChild(songDiv);
+
+      // Attach a click event listener to play the respective song
+      songDiv.addEventListener("click", () => {
+        playSong(index);
+      });
     });
+  }
+
+  // Event listener for search input
+  searchInput.addEventListener("input", () => {
+    const query = searchInput.value.trim();
+    const searchResults = filterSongs(query);
+    renderSongs(searchResults);
   });
+
+  // Initial render of all songs
+  renderSongs(songs);
 
   // Skip button functionality
   skipButton.addEventListener("click", () => {
@@ -239,6 +281,21 @@ async function main() {
     const parts = decodedURL.split("/");
     return parts[parts.length - 1].replace(/%20/g, " ");
   }
+
+  // Seeker functionality
+  seeker.addEventListener("input", () => {
+    // Pause the audio while seeking
+    currentAudio.pause();
+
+    // Update the current time of the audio
+    currentAudio.currentTime = seeker.value;
+
+    // Update the timer with the new current time
+    const currentTime = getFormattedDuration(currentAudio.currentTime);
+    const totalTime = getFormattedDuration(currentAudio.duration);
+    timer.innerHTML = `<h4>${currentTime}</h4>  <h4>${totalTime}</h4>`;
+  });
+
   //sidebar menu function
   const menuIcon = document.getElementById("menuIcon");
   const sideBar = document.getElementById("left");

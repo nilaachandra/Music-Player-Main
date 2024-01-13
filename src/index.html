@@ -25,7 +25,7 @@
                 </div>
                 <div class="flex gap-4 items-center m-2">
                     <i class="ri-search-line text-white text-3xl"></i>
-                    <label class="text-white text-[1rem] font-bold">Search</label>
+                    <input type="text" class="text-black p-1 rounded-lg text-center" name="searchInput" id="searchInput" placeholder="Search songs">
                     
                 </div>
             </div>
@@ -57,7 +57,7 @@
                     <i class="ri-arrow-right-line text-3xl"></i>
                 </div>
                 <div class="flex gap-2 justify-center items-center">
-                    <button class="rounded-2xl bg-white text-black font-bold p-1" id="btn">Explore Premium</button>
+                    <button class="rounded-2xl bg-white text-black font-bold p-1" id="playSong">Start Playing</button>
                     <button class="rounded-2xl bg-white text-black font-bold p-1" id="btn">Log In</button>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                     <h1 class="font-bold text-[1.5rem]">Your Playlists</h1>
                     <div class="flex flex-wrap justify-center items-center gap-2" id="mainrsec">
                         <div class="bg-[#252424] w-[32%] h-[35vh] rounded-lg p-2 gap-2 flex flex-col playlist" id="playlist">
-                            <div class="play-btn">
+                            <div class="play-btn cursor-pointer" id="playAll">
                                 <i class="ri-play-fill"></i>
                             </div>
                             <img src="https://i.pinimg.com/564x/12/93/b9/1293b91b84182d6e19d50b61e297c2b7.jpg" alt=""
@@ -94,7 +94,7 @@
                             <h2 class="text-xs font-bold">Eminem, Joyner Lucas, 21-Savage and More</h2>
                         </div>
                         <div class="bg-[#252424] w-[32%] h-[35vh] rounded-lg p-2 gap-2 flex flex-col playlist" id="playlist">
-                            <div class="play-btn">
+                            <div class="play-btn cursor-pointer" id="playAll">
                                 <i class="ri-play-fill"></i>
                             </div>
                             <img src="https://i.pinimg.com/564x/af/99/7b/af997bd9ce063b60705e71b7c21b8198.jpg" alt=""
@@ -103,7 +103,7 @@
                             <h2 class="text-xs font-bold">Arijit Singh, Armaan Malik, KK and More</h2>
                         </div>
                         <div class="bg-[#252424] w-[32%] h-[35vh] rounded-lg p-2 gap-2 flex flex-col playlist" id="playlist">
-                            <div class="play-btn">
+                            <div class="play-btn cursor-pointer" id="playAll">
                                 <i class="ri-play-fill"></i>
                             </div>
                             <img src="https://i.pinimg.com/564x/6b/0c/e1/6b0ce1346fd3cfa0a0bc9bba8629f5b8.jpg" alt=""
@@ -112,7 +112,7 @@
                             <h2 class="text-xs font-bold">AJ Maisnam, Pushparani, Abhishek and More</h2>
                         </div>
                         <div class="bg-[#252424] w-[32%] h-[35vh] rounded-lg p-2 gap-2 flex flex-col playlist" id="playlist">
-                            <div class="play-btn">
+                            <div class="play-btn cursor-pointer" id="playAll">
                                 <i class="ri-play-fill"></i>
                             </div>
                             <img src="https://i.pinimg.com/564x/e0/11/c0/e011c0cea6f2c0c9bc5a759091a6becf.jpg" alt=""
@@ -121,7 +121,7 @@
                             <h2 class="text-xs font-bold">One Direction, Niall Horan and More</h2>
                         </div>
                         <div class="bg-[#252424] w-[32%] h-[35vh] rounded-lg p-2 gap-2 flex flex-col playlist" id="playlist">
-                            <div class="play-btn">
+                            <div class="play-btn cursor-pointer" id="playAll">
                                 <i class="ri-play-fill"></i>
                             </div>
                             <img src="https://i.pinimg.com/564x/8d/95/b6/8d95b6faf71e8f5c283cd16735ba5440.jpg" alt=""
@@ -130,7 +130,7 @@
                             <h2 class="text-xs font-bold">Phillip Phillips, Taylor Swift and More</h2>
                         </div>
                         <div class="bg-[#252424] w-[32%] h-[35vh] rounded-lg p-2 gap-2 flex flex-col playlist" id="playlist">
-                            <div class="play-btn">
+                            <div class="play-btn cursor-pointer" id="playAll">
                                 <i class="ri-play-fill"></i>
                             </div>
                             <img src="https://i.pinimg.com/564x/34/b1/49/34b14903a7c3bac60c27930d528d490a.jpg" alt=""

@@ -12,7 +12,7 @@ const seekerId = "seeker";
 const searchInputId = "searchInput";
 
 async function getSongs() {
-  let a = await fetch("http://musiccplayer.vercel.app/src/songs/");
+  let a = await fetch("https://musiccplayer-3hj2i7byq-nila-chandra-laishrams-projects.vercel.app/src/songs/");
   let response = await a.text();
   let div = document.createElement("div");
   div.innerHTML = response;

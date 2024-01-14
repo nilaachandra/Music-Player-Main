@@ -1,7 +1,6 @@
 <br/>
 <p align="center">
   <a href="https://github.com/nilaachandra/music-player-main">
-    <img src="" alt="Logo" width="80" height="80">
   </a>
 
   <p align="center">

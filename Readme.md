@@ -10,7 +10,7 @@
     <a href="https://github.com/nilaachandra/music-player-main"><strong>Explore the docs »</strong></a>
     <br/>
     <br/>
-    <a href="https://github.com/nilaachandra/music-player-main">View Demo</a>
+    <a href="https://nilaacodes.freewebhostmost.com/">View Demo</a>
     .
     <a href="https://github.com/nilaachandra/music-player-main/issues">Report Bug</a>
     .
